@@ -5,7 +5,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between py-24">
 
       <iframe
-        src={`https://api.instagram.com/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_INSTAGRAM_ID}&redirect_uri=${'/'}&scope=${'user_profile,user_media'}&response_type=code`}
+        src={`https://api.instagram.com/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_INSTAGRAM_ID}&redirect_uri=${'https://ig-planner-beta.vercel.app/'}&scope=${'user_profile,user_media'}&response_type=code`}
         allowFullScreen
       />
       <div className="grid grid-cols-3 gap-1">
