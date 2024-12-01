@@ -1,36 +1,26 @@
 export function handleInputChange(e, fileSetter) {
     e.preventDefault();
-    const files = e.target.files;
-
-    console.log('archivos selected')
-    console.log(files);
-
-    readFile(files[0], fileSetter);
+    const [file] = e.target.files;
+    if (file) {
+        readFile(file, fileSetter);
+    }
 }
 
 export function handleInputChangeDrop(e, fileSetter) {
     e.preventDefault();
-    const files = e.dataTransfer.files;
+    const files = e.dataTransfer.files;    
 
     // const filteredFiles = files.filter((file) => {
     //     return file.type.includes('image');
     // });
 
-    // console.log('filtered files');
-    // console.log(filteredFiles);
-
-    console.log('data transfer');
-    console.log(e.dataTransfer.items)
-
-    console.log('archivos dropped:')
-    console.log(files);
 
     readFile(files[0], fileSetter);
 }
 
 const readFile = (file, fileSetter) => {
-
-    console.log(file)
+    // let url = URL.createObjectURL(file); // esta opción funciona más rapido para una única imagen pero gasta mucha memoría si hubiera muchas  https://stackoverflow.com/questions/31742072/filereader-vs-window-url-createobjecturl
+    // fileSetter(url);
 
     if (file) {
         const reader = new FileReader();
